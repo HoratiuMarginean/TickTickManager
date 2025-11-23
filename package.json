@@ -1,0 +1,16 @@
+{
+  "name": "ticktick-manager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "dotenvx run -- node .",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix"
+  },
+  "author": "HoratiuMarginean",
+  "license": "MIT",
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.51.1"
+  }
+}
