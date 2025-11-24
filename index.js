@@ -15,6 +15,10 @@ async function UpdateExchangeRates()
     const ticktickProjectJson = await ticktickProjectData.json();
     const tasks = ticktickProjectJson.tasks;
     const sections = ticktickProjectJson.columns;
+
+    const fxratesData = await fetch(`https://api.fxratesapi.com/latest?base=${CFG.LOCAL_CURRENCY}&currencies=${CFG.FOREIGN_CURRENCIES.join(",")}`);
+    const fxratesJson = await fxratesData.json();
+    const rates = fxratesJson.rates;
     
     let updatedTasksCount = 0;
     for (const task of tasks)
@@ -54,10 +58,6 @@ async function UpdateExchangeRates()
         {
           foreignValue = parseFloat(splitTitle[0].split(foreignCurrency)[0].trim());
         }
-
-        const fxratesData = await fetch(`https://api.fxratesapi.com/latest?base=${CFG.LOCAL_CURRENCY}&currencies=${CFG.FOREIGN_CURRENCIES.join(",")}`);
-        const fxratesJson = await fxratesData.json();
-        const rates = fxratesJson.rates;
 
         localValue = foreignValue * (1.00 / rates[foreignCurrency]);
 
