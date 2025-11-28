@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
+  "imports": {
+    "#constants": "./common/constants.js",
+    "#ticktickUtility": "./common/ticktickUtility.js"
+  },
   "scripts": {
     "start": "dotenvx run -- node .",
     "lint": "eslint .",
@@ -12,5 +16,10 @@
   "license": "MIT",
   "dependencies": {
     "@dotenvx/dotenvx": "^1.51.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0"
   }
 }
